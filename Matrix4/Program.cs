@@ -76,6 +76,12 @@ namespace Matrix4
                     sorindex = int.Parse(Console.ReadLine());
                     Console.WriteLine("Add meg az oszlopot:");
                     oszlopindex = int.Parse(Console.ReadLine());
+                    if (matrix[sorindex - 1, oszlopindex - 1] != 0)
+                    {
+                        Console.WriteLine("A megadott helyen már szerepel érték");
+                        continue;
+                    }
+
                     Console.WriteLine("Add meg az értéket:");
                     matrix[sorindex-1,oszlopindex-1] = int.Parse(Console.ReadLine());
                     if (matrix[sorindex - 1, oszlopindex - 1] < 0)
