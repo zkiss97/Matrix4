@@ -79,6 +79,17 @@ namespace Matrix4
                     matrix[sorindex-1,oszlopindex-1] = int.Parse(Console.ReadLine());
                 }
             }
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0;j < cols; j++)
+                {
+                    if (matrix[i,j] == 0)
+                    {
+                        matrix[i, j] = -1;
+                    }
+                }
+            }
         }
 
         public void Screen()
