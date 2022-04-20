@@ -13,6 +13,7 @@ namespace Matrix4
         private int cols;
         private int sorindex;
         private int oszlopindex;
+        private int minuszegydb = 0;
         private string key;
 
         public NewMatrix(int rows, int cols)
@@ -77,6 +78,11 @@ namespace Matrix4
                     oszlopindex = int.Parse(Console.ReadLine());
                     Console.WriteLine("Add meg az értéket:");
                     matrix[sorindex-1,oszlopindex-1] = int.Parse(Console.ReadLine());
+                    if (matrix[sorindex - 1, oszlopindex - 1] < 0)
+                    {
+                        Console.WriteLine("A megadott érték nem felel meg a beviteli feltételeknek, \naz abszolút értéke jelenik meg a tömbben.");
+                        matrix[sorindex - 1, oszlopindex - 1] = Math.Abs(matrix[sorindex - 1, oszlopindex - 1]);
+                    }
                 }
             }
 
@@ -87,6 +93,7 @@ namespace Matrix4
                     if (matrix[i,j] == 0)
                     {
                         matrix[i, j] = -1;
+                        minuszegydb++;
                     }
                 }
             }
@@ -103,6 +110,7 @@ namespace Matrix4
                 }
                 Console.WriteLine("\n");
             }
+            Console.WriteLine("A mátrixban {0} db elem nincs kitöltve.", minuszegydb);
         }
     }
 
